@@ -6,7 +6,7 @@ import collections
 MY_APP_NAME = "MyFirstSparkApp"
 URL_DATA = "data/ratings.csv"
 #Context Setup
-config =SparkConf().setMaster("local").setAppName(MY_APP_NAME)
+config =SparkConf().setMaster("local[*]").setAppName(MY_APP_NAME)
 sc = SparkContext(conf=config)
 
 rdd = sc.textFile(URL_DATA)
