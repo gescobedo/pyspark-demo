@@ -15,10 +15,9 @@ rdd = rdd.mapPartitionsWithIndex(lambda idx, it: islice(it, 1, None) if idx == 0
 
 ratings = rdd.map(lambda x: x.split(",")[2])
 results = ratings.countByValue()
-
+rdd.collect()
 sorted_results = collections.OrderedDict(sorted(results.items()))
 for k, val in sorted_results.items():
     print("key: {} \t\t value:{} ".format(k,val))
-
 
 
